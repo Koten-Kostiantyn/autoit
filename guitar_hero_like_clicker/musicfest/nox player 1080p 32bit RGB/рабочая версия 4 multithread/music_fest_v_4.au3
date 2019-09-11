@@ -11,9 +11,6 @@
 
 HotKeySet("{ESC}", "Terminate")
 _AuThread_Startup()
-Global $global_time = TimerInit()
-Global $global_click_array[300]
-Global $global_unclick_array[300]
 
 
 Func Terminate()
@@ -73,14 +70,11 @@ Func count_pixel_and_otput_to_console_and_do_action( _
 	$pixel_in_memory_old, _ 										;1
 	$new_memory_pixel_counter, _ 									;2
 	$old_memory_pixel_counter, _ 									;3
-	$future_click_counter, _ 										;4
-	$future_unclick_counter, _										;5
-	$actual_click_counter, _ 										;6
-	$actual_unclick_counter)										;7
+	$click_counter, _ 												;4
+	$unclick_counter)												;5
 
 	$current_pixel_state = get_current_pixel_state($button)
-	Local $future_click_counter_array[2] = [$future_click_counter, $future_unclick_counter]
-	Local $actual_click_counter_array[2] = [$actual_click_counter, $actual_unclick_counter]
+	Local $click_counter_array[2] = [$click_counter,$unclick_counter]
 
 	If $current_pixel_state = $pixel_in_memory_new Then
 		$new_memory_pixel_counter = $new_memory_pixel_counter + 1
@@ -94,21 +88,13 @@ Func count_pixel_and_otput_to_console_and_do_action( _
 		If $pixel_in_memory_old = $pixel_in_memory_new Then
 			$old_memory_pixel_counter = $old_memory_pixel_counter + 1
 		Else
-			ConsoleWrite  ($button & ": " & $pixel_in_memory_old & " was " & $old_memory_pixel_counter & @LF)
-			$future_click_counter_array = state_change_reaction($pixel_in_memory_new, _ 
-																$pixel_in_memory_old, _ 
-																$button, _ 
-																$action, _ 
-																$future_click_counter, _ 
-																$future_unclick_counter, _
-																$actual_click_counter, _
-																$actual_unclick_counter _
-																)
+
+			$click_counter_array = state_change_reaction($pixel_in_memory_new, $pixel_in_memory_old, $button, $action, $click_counter, $unclick_counter)
 
 			$pixel_in_memory_old = $pixel_in_memory_new
 			$old_memory_pixel_counter = 5
 
-			ConsoleWrite  ($button & ": " & $pixel_in_memory_new & @LF)
+
 		EndIf
 	EndIf
 
@@ -117,51 +103,42 @@ Func count_pixel_and_otput_to_console_and_do_action( _
 
 
 	; Now transform vars to array so we can return that values (IDK any other solution)
-	Local $func_array[8]
+	Local $func_array[6]
 	$func_array[0] = $pixel_in_memory_new
 	$func_array[1] = $pixel_in_memory_old
 	$func_array[2] = $new_memory_pixel_counter
 	$func_array[3] = $old_memory_pixel_counter
-	$func_array[4] = $future_click_counter_array[0]
-	$func_array[5] = $future_click_counter_array[1]
-	$func_array[6] = $actual_click_counter_array[0]
-	$func_array[7] = $actual_click_counter_array[1]
+	$func_array[4] = $click_counter_array[0]
+	$func_array[5] = $click_counter_array[1]
 	Return $func_array
 EndFunc;
 
 
-Func state_change_reaction($current_pixel_state, $old_pixel_state, $button, $action, $future_click_counter, $future_unclick_counter, $actual_click_counter, $actual_unclick_counter)
+Func state_change_reaction($current_pixel_state, $old_pixel_state, $button, $action, $click_counter, $unclick_counter)
 	if ($current_pixel_state <> 'empty_empty' and $current_pixel_state <> 'clicked_empty') and _
 	   ($old_pixel_state = 'empty_empty' or $old_pixel_state = 'clicked_empty') Then ; was empty became something
 	    If $action Then
-			hold_click_action($button, $actual_click_counter)
-			$future_click_counter = $future_click_counter + 1
+			hold_click_action($button)
+			$click_counter = $click_counter + 1
 		EndIf
-		ConsoleWrite  ("! " & @ScriptLineNumber & $button & ": Click and hold, future action count = " & $future_click_counter - 4 & @LF)
 	EndIf
 	if ($old_pixel_state <> 'empty_empty' and $old_pixel_state <> 'clicked_empty') and _
 	   ($current_pixel_state = 'empty_empty' or $current_pixel_state = 'clicked_empty') Then ; was something became empty
 	    If $action Then
-			unclick_action($button, $actual_unclick_counter)
-			$future_unclick_counter = $future_unclick_counter + 1
+			unclick_action($button)
+			$unclick_counter = $unclick_counter + 1
 		EndIf
-		ConsoleWrite  ("- " & @ScriptLineNumber & $button & ": UNclick, future action count = " & $future_unclick_counter - 4 & @LF)
 	EndIf
 
 	Local $return_array[2]
-	$return_array[0] = $future_click_counter
-	$return_array[1] = $future_unclick_counter
+	$return_array[0] = $click_counter
+	$return_array[1] = $unclick_counter
 	Return $return_array
 EndFunc;
 
 
-Func loop_all_buttons_and_do_actions_count_and_etc()
-
-
-	Local $first_func_array[8] = [0,0,0,0,0,0,0,0]
-	Local $second_func_array[8] = [0,0,0,0,0,0,0,0]
-	Local $third_func_array[8] = [0,0,0,0,0,0,0,0]
-	Local $four_func_array[8] = [0,0,0,0,0,0,0,0]
+Func loop_all_buttons_and_do_actions_count_and_etc_1()
+	Local $first_func_array[6] = [0,0,0,0,0,0]
 	While 1
 		$first_func_array = count_pixel_and_otput_to_console_and_do_action(1, True, _
 			$first_func_array[0], _
@@ -169,53 +146,62 @@ Func loop_all_buttons_and_do_actions_count_and_etc()
 			$first_func_array[2], _
 			$first_func_array[3], _
 			$first_func_array[4], _
-			$first_func_array[5], _
-			$first_func_array[6], _
-			$first_func_array[7])
-		$second_func_array = count_pixel_and_otput_to_console_and_do_action(2, True, _
-			$second_func_array[0], _
-			$second_func_array[1], _
-			$second_func_array[2], _
-			$second_func_array[3], _
-			$first_func_array[4], _
-			$first_func_array[5], _
-			$first_func_array[6], _
-			$first_func_array[7])
-		$third_func_array = count_pixel_and_otput_to_console_and_do_action(3, True, _
-			$third_func_array[0], _
-			$third_func_array[1], _
-			$third_func_array[2], _
-			$third_func_array[3], _
-			$second_func_array[4], _
-			$second_func_array[5], _
-			$second_func_array[6], _
-			$second_func_array[7])
-		$four_func_array = count_pixel_and_otput_to_console_and_do_action(4, True, _
-			$four_func_array[0], _
-			$four_func_array[1], _
-			$four_func_array[2], _
-			$four_func_array[3], _
-			$third_func_array[4], _
-			$third_func_array[5], _
-			$third_func_array[6], _
-			$third_func_array[7])
-		; magic for counters memory goes like 1->2->3->4->1 etc...
-		$first_func_array[4] = $four_func_array[4]
-		$first_func_array[5] = $four_func_array[5]
-		$first_func_array[6] = $four_func_array[6]
-		$first_func_array[7] = $four_func_array[7]
+			$first_func_array[5])
 	WEnd
 EndFunc
 
+Func loop_all_buttons_and_do_actions_count_and_etc_2()
+	Local $first_func_array[6] = [0,0,0,0,0,0]
+	While 1
+		$first_func_array = count_pixel_and_otput_to_console_and_do_action(2, True, _
+			$first_func_array[0], _
+			$first_func_array[1], _
+			$first_func_array[2], _
+			$first_func_array[3], _
+			$first_func_array[4], _
+			$first_func_array[5])
+	WEnd
+EndFunc
+Func loop_all_buttons_and_do_actions_count_and_etc_3()
+	Local $first_func_array[6] = [0,0,0,0,0,0]
+	While 1
+		$first_func_array = count_pixel_and_otput_to_console_and_do_action(3, True, _
+			$first_func_array[0], _
+			$first_func_array[1], _
+			$first_func_array[2], _
+			$first_func_array[3], _
+			$first_func_array[4], _
+			$first_func_array[5])
+	WEnd
+EndFunc
+Func loop_all_buttons_and_do_actions_count_and_etc_4()
+	Local $first_func_array[6] = [0,0,0,0,0,0]
+	While 1
+		$first_func_array = count_pixel_and_otput_to_console_and_do_action(4, True, _
+			$first_func_array[0], _
+			$first_func_array[1], _
+			$first_func_array[2], _
+			$first_func_array[3], _
+			$first_func_array[4], _
+			$first_func_array[5])
+	WEnd
+EndFunc
 
-loop_all_buttons_and_do_actions_count_and_etc()
+$hThread = _AuThread_StartThread("loop_all_buttons_and_do_actions_count_and_etc_1")
+$hThread = _AuThread_StartThread("loop_all_buttons_and_do_actions_count_and_etc_2")
+$hThread = _AuThread_StartThread("loop_all_buttons_and_do_actions_count_and_etc_3")
+$hThread = _AuThread_StartThread("loop_all_buttons_and_do_actions_count_and_etc_4")
 
+while 1
+sleep (1)
+WEnd
 
 
 ; todo add 2 levels of logging
 
 
-Func hold_click_action($button, $actual_click_counter)
+
+Func hold_click_action($button)
 	If $button = 1 Then
 		$hThread = _AuThread_StartThread("hold_click_first")
 	ElseIf $button = 2 Then
@@ -230,7 +216,7 @@ Func hold_click_action($button, $actual_click_counter)
 EndFunc
 
 
-Func unclick_action($button, $actual_unclick_counter)
+Func unclick_action($button)
 	If $button = 1 Then
 		$hThread = _AuThread_StartThread("unclick_first")
 	ElseIf $button = 2 Then
@@ -246,6 +232,8 @@ EndFunc
 
 
 
+
+
 Func hold_click_first()
 	Sleep(450)
 	ControlSend("NoxPlayer", "centralWidgetWindow", "" , "{z down}")
@@ -254,7 +242,7 @@ Func hold_click_first()
 EndFunc
 
 Func unclick_first()
-	Sleep(450)
+	Sleep(430)
 	ControlSend("NoxPlayer", "centralWidgetWindow", "" , "{z up}")
 	; MouseMove(737, 800, 1)
 	;MouseUp("left")
@@ -269,7 +257,7 @@ Func hold_click_second()
 EndFunc
 
 Func unclick_second()
-	Sleep(450)
+	Sleep(430)
 	ControlSend("NoxPlayer", "centralWidgetWindow", "" , "{x up}")
 	; MouseMove(872, 800, 1)
 	;MouseUp("left")
@@ -284,7 +272,7 @@ Func hold_click_third()
 EndFunc
 
 Func unclick_third()
-	Sleep(450)
+	Sleep(430)
 	ControlSend("NoxPlayer", "centralWidgetWindow", "" , "{c up}")
 	; MouseMove(1007, 800, 1)
 	;MouseUp("left")
@@ -299,7 +287,7 @@ Func hold_click_four()
 EndFunc
 
 Func unclick_four()
-	Sleep(450)
+	Sleep(430)
 	ControlSend("NoxPlayer", "centralWidgetWindow", "" , "{v up}")
 	; MouseMove(1141, 800, 1)
 	;MouseUp("left")
