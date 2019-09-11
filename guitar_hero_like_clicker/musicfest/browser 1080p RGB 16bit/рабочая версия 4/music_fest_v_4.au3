@@ -176,6 +176,7 @@ Func loop_all_buttons_and_do_actions_count_and_etc()
 			$third_func_array[4], _
 			$third_func_array[5])
 		; magic for counters memory goes like 1->2->3->4->1 etc...
+		; you can comment 171-177 to disable one stream (column)
 		$first_func_array[4] = $four_func_array[4]
 		$first_func_array[5] = $four_func_array[5]
 	WEnd
