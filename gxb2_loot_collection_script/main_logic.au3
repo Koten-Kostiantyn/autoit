@@ -54,6 +54,7 @@ repeat
 #include "detecting_gxb2_campaign_tab.au3"
 #include "detecting_gxb2_loot_red_dot.au3"
 #include "detecting_gxb2_loot_claim_window.au3"
+#include "detecting_gxb2_function_lib.au3"
 
 HotKeySet("{ESC}", "Terminate")
 

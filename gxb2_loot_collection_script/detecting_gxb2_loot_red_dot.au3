@@ -49,4 +49,4 @@ Func is_gxb2_loot_red_dot()
    Return $Loot_Red_Dot_pixel_color_present
 EndFunc
 
-is_gxb2_loot_red_dot()
+;is_gxb2_loot_red_dot()
