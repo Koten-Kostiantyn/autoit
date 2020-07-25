@@ -35,8 +35,13 @@ Func compare_current_and_constant_pixel_colors($current_array, $constant_array, 
 		 Beep(500, 1000)
 		 Local $hFileOpen = FileOpen($error_logfile_filepath, $FO_APPEND)
 		 FileWriteLine($hFileOpen, "Problem happened in " & $name_of_pixel & " at time " & $current_timestamp )
+		 FileWriteLine($hFileOpen, "PROBLEM " & $array_pixel_color_problem & "\" & $arrayLength)
 		 For $i=0 to ($arrayLength - 1)
-			FileWriteLine ($hFileOpen, "Comparing 2 strings: " & $current_array[$i] & "  " & $constant_array[$i])
+			If StringCompare( $current_array[$i], $constant_array[$i] ) Then
+			   FileWriteLine ($hFileOpen, "Comparing 2 strings: [" & $i & "] " & $current_array[$i] & "  " & $constant_array[$i])
+			Else
+			   FileWriteLine ($hFileOpen, "Comparing 2 strings: [" & $i & "] " &  " OK!" )
+			EndIf
 		 Next
 		 FileWriteLine($hFileOpen, " _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ ")
 		 FileWriteLine($hFileOpen, "                                   ")

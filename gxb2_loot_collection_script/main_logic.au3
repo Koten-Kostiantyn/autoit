@@ -67,6 +67,21 @@ Func problemExit()
    Exit
 EndFunc
 
+Global $hTimer = TimerInit()
+
+Func TimerDiffSeconds()
+   Local $fDiff = TimerDiff($hTimer)
+   $fDiff = Round($fDiff/1000)
+   Return $fDiff
+EndFunc
+
+Func TimerDiffHuman()
+   Local $nr_sec = TimerDiffSeconds()
+   $sec2time_hour = Int($nr_sec / 3600)
+   $sec2time_min = Int(($nr_sec - $sec2time_hour * 3600) / 60)
+   $sec2time_sec = $nr_sec - $sec2time_hour * 3600 - $sec2time_min * 60
+   Return StringFormat('%02dh %02dmin %02dsec', $sec2time_hour, $sec2time_min, $sec2time_sec)
+EndFunc
 
 Func search_for_game_scenario()
    ;failsafe func, halt script if nothing to do
@@ -136,6 +151,16 @@ Func multiple_search_for_game_scenario()
 EndFunc
 
 
+Func make_a_loot_screenshot()
+   Local $current_timestamp = @YEAR & "_" & @MON & "_" & @MDAY  & " " & @HOUR & "." & @MIN & "." & @SEC
+   Local $time_from_script_start = TimerDiffHuman()
+   Local $loot_screenshot_filename = $current_timestamp & " loot " & $time_from_script_start & " .png"
+   Local $loot_screenshot_filepath = @ScriptDir & "\loot\" & $loot_screenshot_filename
+   _ScreenCapture_Capture($loot_screenshot_filepath, 266, 336, 783, 778)
+   1; do nothing for now
+EndFunc
+
+
 Func main()
 
 
@@ -175,6 +200,9 @@ While 1
    ; scenario 2 - close loot window
    If is_gxb2_loot_claim_window() Then
 
+	  ; - make a loot screenshot
+	  make_a_loot_screenshot()
+
 	  ; - close loot window
 	  ConsoleWrite ( "Attempting click on Claim" & @CRLF)
 	  $lootClaim_pixel_color_present = 0
@@ -190,6 +218,7 @@ WEnd
 EndFunc
 
 main()
+
 ;Local $i = StringCompare( $topBar_pixel_1, Hex($iColor, 6) )
 
 
