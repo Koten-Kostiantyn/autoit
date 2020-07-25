@@ -21,28 +21,26 @@
 
 #ce ----------------------------------------------------------------------------
 
+; Global variables
+Global $array_pixel_color_problem = 0
+
 ; darkTopBar variables
-Global $darkTopBar_pixel_color_problem = 0
 Global $darkTopBar_pixel_count = 5
 Define_constant_darkTopBar_pixel_colors()
 
 ; darkMichael variables
-Global $darkmichael_pixel_color_problem = 0
 Global $darkmichael_pixel_count = 8
 Define_constant_darkmichael_pixel_colors()
 
 ; darkleaves variables
-Global $darkleaves_pixel_color_problem = 0
 Global $darkleaves_pixel_count = 5
 Define_constant_darkleaves_pixel_colors()
 
 ; theBookDark variables
-Global $theBookDark_pixel_color_problem = 0
 Global $theBookDark_pixel_count = 5
 Define_constant_theBookDark_pixel_colors()
 
 ; theBoxDark variables
-Global $theBoxDark_pixel_color_problem = 0
 Global $theBoxDark_pixel_count = 5
 Define_constant_theBoxDark_pixel_colors()
 
@@ -63,21 +61,6 @@ Func Define_constant_darkTopBar_pixel_colors()
    $darkTopBar_color[2] = "182F45"
    $darkTopBar_color[3] = "3A4046"
    $darkTopBar_color[4] = "353D44"
-EndFunc
-
-Func Compare_current_and_constant_darkTopBar_pixel_colors()
-   ConsoleWrite ( "Checking dark top bar...")
-   For $i=0 to ($darkTopBar_pixel_count - 1)
-	  ;ConsoleWrite ( "Comparing 2 strings: " & $darkTopBar_pixel[$i] & "  " & $darkTopBar_color[$i] & @CRLF)
-	  If StringCompare( $darkTopBar_pixel[$i], $darkTopBar_color[$i] ) Then
-		 $darkTopBar_pixel_color_problem = 1
-	  EndIf
-   Next
-   If $darkTopBar_pixel_color_problem Then
-	  ConsoleWrite ( "PROBLEM" & @CRLF)
-   Else
-	  ConsoleWrite ( "OK" & @CRLF)
-   EndIf
 EndFunc
 ;=========================================================
 
@@ -106,21 +89,6 @@ Func Define_constant_darkmichael_pixel_colors()
    $darkmichael_color[6] = "413429"
    $darkmichael_color[7] = "42484B"
 EndFunc
-
-Func Compare_current_and_constant_darkmichael_pixel_colors()
-   ConsoleWrite ( "Checking darkMichael...")
-   For $i=0 to ($darkmichael_pixel_count - 1)
-	  ;ConsoleWrite ( "Comparing 2 strings: " & $darkmichael_pixel[$i] & "  " & $darkmichael_color[$i] & @CRLF)
-	  If StringCompare( $darkmichael_pixel[$i], $darkmichael_color[$i] ) Then
-		 $darkmichael_pixel_color_problem = 1
-	  EndIf
-   Next
-   If $darkmichael_pixel_color_problem Then
-	  ConsoleWrite ( "PROBLEM" & @CRLF)
-   Else
-	  ConsoleWrite ( "OK" & @CRLF)
-   EndIf
-EndFunc
 ;=========================================================
 
 ;================ darkLEAVES =======================
@@ -140,21 +108,6 @@ Func Define_constant_darkleaves_pixel_colors()
    $darkleaves_color[2] = "0D0F0A"
    $darkleaves_color[3] = "0D0F0A"
    $darkleaves_color[4] = "111A0A"
-EndFunc
-
-Func Compare_current_and_constant_darkleaves_pixel_colors()
-   ConsoleWrite ( "Checking darkLeaves...")
-   For $i=0 to ($darkleaves_pixel_count - 1)
-     ;ConsoleWrite ( "Comparing 2 strings: " & $darkleaves_pixel[$i] & "  " & $darkleaves_color[$i] & @CRLF)
-     If StringCompare( $darkleaves_pixel[$i], $darkleaves_color[$i] ) Then
-       $darkleaves_pixel_color_problem = 1
-     EndIf
-   Next
-   If $darkleaves_pixel_color_problem Then
-     ConsoleWrite ( "PROBLEM" & @CRLF)
-   Else
-     ConsoleWrite ( "OK" & @CRLF)
-   EndIf
 EndFunc
 ;=========================================================
 
@@ -176,21 +129,6 @@ Func Define_constant_theBookDark_pixel_colors()
    $theBookDark_color[3] = "4D4A46"
    $theBookDark_color[4] = "1A1F31"
 EndFunc
-
-Func Compare_current_and_constant_theBookDark_pixel_colors()
-   ConsoleWrite ( "Checking the Book...")
-   For $i=0 to ($theBookDark_pixel_count - 1)
-     ;ConsoleWrite ( "Comparing 2 strings: " & $theBookDark_pixel[$i] & "  " & $theBookDark_color[$i] & @CRLF)
-     If StringCompare( $theBookDark_pixel[$i], $theBookDark_color[$i] ) Then
-       $theBookDark_pixel_color_problem = 1
-     EndIf
-   Next
-   If $theBookDark_pixel_color_problem Then
-     ConsoleWrite ( "PROBLEM" & @CRLF)
-   Else
-     ConsoleWrite ( "OK" & @CRLF)
-   EndIf
-EndFunc
 ;=========================================================
 
 ;================ LOOT BOX ===============================
@@ -211,65 +149,77 @@ Func Define_constant_theBoxDark_pixel_colors()
    $theBoxDark_color[3] = "171C33"
    $theBoxDark_color[4] = "49403F"
 EndFunc
+;=========================================================
 
-Func Compare_current_and_constant_theBoxDark_pixel_colors()
-   ConsoleWrite ( "Checking the Box...")
-   For $i=0 to ($theBoxDark_pixel_count - 1)
-     ;ConsoleWrite ( "Comparing 2 strings: " & $theBoxDark_pixel[$i] & "  " & $theBoxDark_color[$i] & @CRLF)
-     If StringCompare( $theBoxDark_pixel[$i], $theBoxDark_color[$i] ) Then
-       $theBoxDark_pixel_color_problem = 1
-     EndIf
+
+Func compare_current_and_constant_pixel_colors($current_array, $constant_array, $name_of_pixel)
+   Local Const $arrayLength = UBound($current_array)
+
+   ConsoleWrite ( "Checking the " & $name_of_pixel & "...")
+   For $i=0 to ($arrayLength - 1)
+      If StringCompare( $current_array[$i], $constant_array[$i] ) Then
+     $array_pixel_color_problem += 1
+      EndIf
    Next
-   If $theBoxDark_pixel_color_problem Then
-     ConsoleWrite ( "PROBLEM" & @CRLF)
+   If $array_pixel_color_problem Then
+    If $array_pixel_color_problem == $arrayLength Then
+     ConsoleWrite ( "PROBLEM " & $array_pixel_color_problem & "\" & $arrayLength & @CRLF)
+    Else
+     ConsoleWrite ( "PROBLEM " & $array_pixel_color_problem & "\" & $arrayLength & @CRLF)
+     For $i=0 to ($arrayLength - 1)
+      ConsoleWrite ( "Comparing 2 strings: " & $current_array[$i] & "  " & $constant_array[$i] & @CRLF)
+     Next
+    EndIf
    Else
-     ConsoleWrite ( "OK" & @CRLF)
+      ConsoleWrite ( "OK" & @CRLF)
    EndIf
 EndFunc
-;=========================================================
+
 
 Func is_gxb2_loot_claim_window()
    Local $problem = 0
 
    ; checking darkTopBar ================================
-   $darkTopBar_pixel_color_problem = 0
+   $array_pixel_color_problem = 0
    Get_current_darkTopBar_pixel_colors()
-   Compare_current_and_constant_darkTopBar_pixel_colors()
-   if $darkTopBar_pixel_color_problem Then
-	  $problem = 1
+   compare_current_and_constant_pixel_colors($darkTopBar_pixel, $darkTopBar_color, "dark top Bar")
+   if $array_pixel_color_problem Then
+    $problem = 1
    EndIf
 
-   ; checking darkmichael ===============================
-   $darkmichael_pixel_color_problem = 0
+   ; checking darkmichael ================================
+   $array_pixel_color_problem = 0
    Get_current_darkmichael_pixel_colors()
-   Compare_current_and_constant_darkmichael_pixel_colors()
-   if $darkmichael_pixel_color_problem Then
-     $problem = 1
+   compare_current_and_constant_pixel_colors($darkmichael_pixel, $darkmichael_color, "dark Michael")
+   if $array_pixel_color_problem Then
+    $problem = 1
    EndIf
 
-   ; checking darkleaves ===============================
-   $darkleaves_pixel_color_problem = 0
+   ; checking darkleaves ================================
+   $array_pixel_color_problem = 0
    Get_current_darkleaves_pixel_colors()
-   Compare_current_and_constant_darkleaves_pixel_colors()
-   if $darkleaves_pixel_color_problem Then
-     $problem = 1
+   compare_current_and_constant_pixel_colors($darkleaves_pixel, $darkleaves_color, "dark Leaves")
+   if $array_pixel_color_problem Then
+    $problem = 1
    EndIf
 
-   ; checking theBookDark ===============================
-   $theBookDark_pixel_color_problem = 0
+   ; checking theBookDark ================================
+   $array_pixel_color_problem = 0
    Get_current_theBookDark_pixel_colors()
-   Compare_current_and_constant_theBookDark_pixel_colors()
-   if $theBookDark_pixel_color_problem Then
-     $problem = 1
+   compare_current_and_constant_pixel_colors($theBookDark_pixel, $theBookDark_color, "the Book Dark")
+   if $array_pixel_color_problem Then
+    $problem = 1
    EndIf
 
-   ; checking theBoxDark ===============================
-   $theBoxDark_pixel_color_problem = 0
+   ; checking theBoxDark ================================
+   $array_pixel_color_problem = 0
    Get_current_theBoxDark_pixel_colors()
-   Compare_current_and_constant_theBoxDark_pixel_colors()
-   if $theBoxDark_pixel_color_problem Then
-     $problem = 1
+   compare_current_and_constant_pixel_colors($theBoxDark_pixel, $theBoxDark_color, "the Box Dark")
+   if $array_pixel_color_problem Then
+    $problem = 1
    EndIf
 
    Return not $problem
 EndFunc
+
+;is_gxb2_loot_claim_window()

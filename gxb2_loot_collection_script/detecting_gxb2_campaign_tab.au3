@@ -223,4 +223,4 @@ Func is_gxb2_campaingn_tab()
    Return not $problem
 EndFunc
 
-is_gxb2_campaingn_tab()
+;is_gxb2_campaingn_tab()
