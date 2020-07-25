@@ -62,14 +62,6 @@ Func Terminate()
     Exit
  EndFunc   ;==>Terminate
 
-
-Func Exit_if_game_not_found_or_unexpected_event($problem)
-   ;not used anywhere, can delete later
-   If $problem Then
-	  problemExit()
-   EndIf
-EndFunc
-
 Func problemExit()
    MsgBox($MB_SYSTEMMODAL, "", "Huiston we have a problem")
    Exit
@@ -101,7 +93,43 @@ Func search_for_game_scenario()
 
    ;ConsoleWrite ( "Scenario 4_ " & $game_scenario_found & @CRLF )
 
-   If not $game_scenario_found Then
+   If $game_scenario_found Then
+	  Return 1
+   Else
+	  Return 0
+   EndIf
+
+EndFunc
+
+Func multiple_search_for_game_scenario()
+
+   Local $times_to_recheck_scenarios = 3
+
+   Local $scenario_found = 0
+
+   For $i = 0 to ($times_to_recheck_scenarios - 1)
+
+	  ;ConsoleWrite ( "RECHECK outside " & $rechecks_counter & @CRLF)
+	  ;ConsoleWrite ( "times to recheck  " & $times_to_recheck_scenarios & @CRLF)
+
+	  If not $scenario_found Then
+		 ConsoleWrite ( "RECHECK inside " & $i + 1 & @CRLF)
+		 $scenario_found = search_for_game_scenario()
+	  EndIf
+
+   Next
+
+   If not $scenario_found Then
+	  Beep(5000,100)
+	  Beep(5000,100)
+	  Beep(5000,100)
+	  Beep(5000,100)
+	  Beep(5000,100)
+	  Beep(5000,100)
+	  Beep(5000,100)
+	  Beep(5000,100)
+	  Beep(5000,100)
+	  Beep(5000,100)
 	  problemExit()
    EndIf
 
@@ -115,7 +143,7 @@ While 1
 
 
    ; - Search for scenarios
-   search_for_game_scenario()
+   multiple_search_for_game_scenario()
    ConsoleWrite ( "Game scenario existance checked" & @CRLF )
 
 
