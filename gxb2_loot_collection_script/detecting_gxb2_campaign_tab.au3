@@ -24,27 +24,22 @@
 Global $array_pixel_color_problem = 0
 
 ; topBar variables
-Global $topBar_pixel_color_problem = 0
 Global $topBar_pixel_count = 5
 Define_constant_topBar_pixel_colors()
 
 ; Michael variables
-Global $michael_pixel_color_problem = 0
 Global $michael_pixel_count = 8
 Define_constant_michael_pixel_colors()
 
 ; leaves variables
-Global $leaves_pixel_color_problem = 0
 Global $leaves_pixel_count = 5
 Define_constant_leaves_pixel_colors()
 
 ; theBook variables
-Global $theBook_pixel_color_problem = 0
 Global $theBook_pixel_count = 5
 Define_constant_theBook_pixel_colors()
 
 ; theBox variables
-Global $theBox_pixel_color_problem = 0
 Global $theBox_pixel_count = 5
 Define_constant_theBox_pixel_colors()
 
@@ -66,22 +61,8 @@ Func Define_constant_topBar_pixel_colors()
    $topBar_color[3] = "C1D5E8"
    $topBar_color[4] = "B2CAE2"
 EndFunc
-
-Func Compare_current_and_constant_topBar_pixel_colors()
-   ConsoleWrite ( "Checking top bar...")
-   For $i=0 to ($topBar_pixel_count - 1)
-	  ;ConsoleWrite ( "Comparing 2 strings: " & $topBar_pixel[$i] & "  " & $topBar_color[$i] & @CRLF)
-	  If StringCompare( $topBar_pixel[$i], $topBar_color[$i] ) Then
-		 $topBar_pixel_color_problem = 1
-	  EndIf
-   Next
-   If $topBar_pixel_color_problem Then
-	  ConsoleWrite ( "PROBLEM" & @CRLF)
-   Else
-	  ConsoleWrite ( "OK" & @CRLF)
-   EndIf
-EndFunc
 ;=========================================================
+
 
 ;================ MICHAEL =======================
 
@@ -108,22 +89,8 @@ Func Define_constant_michael_pixel_colors()
    $michael_color[6] = "DAAE88"
    $michael_color[7] = "DDF0FA"
 EndFunc
-
-Func Compare_current_and_constant_michael_pixel_colors()
-   ConsoleWrite ( "Checking Michael...")
-   For $i=0 to ($michael_pixel_count - 1)
-	  ;ConsoleWrite ( "Comparing 2 strings: " & $michael_pixel[$i] & "  " & $michael_color[$i] & @CRLF)
-	  If StringCompare( $michael_pixel[$i], $michael_color[$i] ) Then
-		 $michael_pixel_color_problem = 1
-	  EndIf
-   Next
-   If $michael_pixel_color_problem Then
-	  ConsoleWrite ( "PROBLEM" & @CRLF)
-   Else
-	  ConsoleWrite ( "OK" & @CRLF)
-   EndIf
-EndFunc
 ;=========================================================
+
 
 ;================ LEAVES =======================
 Func Get_current_leaves_pixel_colors()
@@ -142,21 +109,6 @@ Func Define_constant_leaves_pixel_colors()
    $leaves_color[2] = "293420"
    $leaves_color[3] = "2A3221"
    $leaves_color[4] = "385722"
-EndFunc
-
-Func Compare_current_and_constant_leaves_pixel_colors()
-   ConsoleWrite ( "Checking Leaves...")
-   For $i=0 to ($leaves_pixel_count - 1)
-     ;ConsoleWrite ( "Comparing 2 strings: " & $leaves_pixel[$i] & "  " & $leaves_color[$i] & @CRLF)
-     If StringCompare( $leaves_pixel[$i], $leaves_color[$i] ) Then
-       $leaves_pixel_color_problem = 1
-     EndIf
-   Next
-   If $leaves_pixel_color_problem Then
-     ConsoleWrite ( "PROBLEM" & @CRLF)
-   Else
-     ConsoleWrite ( "OK" & @CRLF)
-   EndIf
 EndFunc
 ;=========================================================
 
@@ -178,21 +130,6 @@ Func Define_constant_theBook_pixel_colors()
    $theBook_color[3] = "FFF6E9"
    $theBook_color[4] = "5568A4"
 EndFunc
-
-Func Compare_current_and_constant_theBook_pixel_colors()
-   ConsoleWrite ( "Checking the Book...")
-   For $i=0 to ($theBook_pixel_count - 1)
-     ;ConsoleWrite ( "Comparing 2 strings: " & $theBook_pixel[$i] & "  " & $theBook_color[$i] & @CRLF)
-     If StringCompare( $theBook_pixel[$i], $theBook_color[$i] ) Then
-       $theBook_pixel_color_problem = 1
-     EndIf
-   Next
-   If $theBook_pixel_color_problem Then
-     ConsoleWrite ( "PROBLEM" & @CRLF)
-   Else
-     ConsoleWrite ( "OK" & @CRLF)
-   EndIf
-EndFunc
 ;=========================================================
 
 ;================ LOOT BOX ===============================
@@ -213,39 +150,32 @@ Func Define_constant_theBox_pixel_colors()
    $theBox_color[3] = "4C5EAB"
    $theBox_color[4] = "F3D6D3"
 EndFunc
-
-Func Compare_current_and_constant_theBox_pixel_colors()
-   ConsoleWrite ( "Checking the Box...")
-   For $i=0 to ($theBox_pixel_count - 1)
-     ;ConsoleWrite ( "Comparing 2 strings: " & $theBox_pixel[$i] & "  " & $theBox_color[$i] & @CRLF)
-     If StringCompare( $theBox_pixel[$i], $theBox_color[$i] ) Then
-       $theBox_pixel_color_problem = 1
-     EndIf
-   Next
-   If $theBox_pixel_color_problem Then
-     ConsoleWrite ( "PROBLEM" & @CRLF)
-   Else
-     ConsoleWrite ( "OK" & @CRLF)
-   EndIf
-EndFunc
 ;=========================================================
+
 
 Func compare_current_and_constant_pixel_colors($current_array, $constant_array, $name_of_pixel)
    Local Const $arrayLength = UBound($current_array)
 
    ConsoleWrite ( "Checking the " & $name_of_pixel & "...")
    For $i=0 to ($arrayLength - 1)
-     ;ConsoleWrite ( "Comparing 2 strings: " & $current_array[$i] & "  " & $constant_array[$i] & @CRLF)
-     If StringCompare( $current_array[$i], $constant_array[$i] ) Then
-       $array_pixel_color_problem = 1
-     EndIf
+      If StringCompare( $current_array[$i], $constant_array[$i] ) Then
+		 $array_pixel_color_problem += 1
+      EndIf
    Next
    If $array_pixel_color_problem Then
-     ConsoleWrite ( "PROBLEM" & @CRLF)
+	  If $array_pixel_color_problem == $arrayLength Then
+		 ConsoleWrite ( "PROBLEM " & $array_pixel_color_problem & "\" & $arrayLength & @CRLF)
+	  Else
+		 ConsoleWrite ( "PROBLEM " & $array_pixel_color_problem & "\" & $arrayLength & @CRLF)
+		 For $i=0 to ($arrayLength - 1)
+			ConsoleWrite ( "Comparing 2 strings: " & $current_array[$i] & "  " & $constant_array[$i] & @CRLF)
+		 Next
+	  EndIf
    Else
-     ConsoleWrite ( "OK" & @CRLF)
+      ConsoleWrite ( "OK" & @CRLF)
    EndIf
 EndFunc
+
 
 Func is_gxb2_campaingn_tab()
    Local $problem = 0
@@ -258,36 +188,36 @@ Func is_gxb2_campaingn_tab()
 	  $problem = 1
    EndIf
 
-   ; checking michael ===============================
-   $michael_pixel_color_problem = 0
+   ; checking michael ================================
+   $array_pixel_color_problem = 0
    Get_current_michael_pixel_colors()
-   Compare_current_and_constant_michael_pixel_colors()
-   if $michael_pixel_color_problem Then
-     $problem = 1
+   compare_current_and_constant_pixel_colors($michael_pixel, $michael_color, "Michael")
+   if $array_pixel_color_problem Then
+	  $problem = 1
    EndIf
 
-   ; checking leaves ===============================
-   $leaves_pixel_color_problem = 0
+   ; checking leaves ================================
+   $array_pixel_color_problem = 0
    Get_current_leaves_pixel_colors()
-   Compare_current_and_constant_leaves_pixel_colors()
-   if $leaves_pixel_color_problem Then
-     $problem = 1
+   compare_current_and_constant_pixel_colors($leaves_pixel, $leaves_color, "Leaves")
+   if $array_pixel_color_problem Then
+    $problem = 1
    EndIf
 
-   ; checking theBook ===============================
-   $theBook_pixel_color_problem = 0
+   ; checking theBook ================================
+   $array_pixel_color_problem = 0
    Get_current_theBook_pixel_colors()
-   Compare_current_and_constant_theBook_pixel_colors()
-   if $theBook_pixel_color_problem Then
-     $problem = 1
+   compare_current_and_constant_pixel_colors($theBook_pixel, $theBook_color, "the Book")
+   if $array_pixel_color_problem Then
+    $problem = 1
    EndIf
 
-   ; checking theBox ===============================
-   $theBox_pixel_color_problem = 0
+   ; checking theBox ================================
+   $array_pixel_color_problem = 0
    Get_current_theBox_pixel_colors()
-   Compare_current_and_constant_theBox_pixel_colors()
-   if $theBox_pixel_color_problem Then
-     $problem = 1
+   compare_current_and_constant_pixel_colors($theBox_pixel, $theBox_color, "the Box")
+   if $array_pixel_color_problem Then
+    $problem = 1
    EndIf
 
    Return not $problem
