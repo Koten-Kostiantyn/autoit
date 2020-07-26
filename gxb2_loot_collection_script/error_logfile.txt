@@ -1,0 +1,416 @@
+Problem happened in top Bar at time 2020_07_25 22.34.13
+Comparing 2 strings: -
+Comparing 2 strings: BFD3E7  C1D5E9
+Comparing 2 strings: 4F9CE5  509FE7
+Comparing 2 strings: BFD3E6  C1D5E8
+Comparing 2 strings: B0C8E0  B2CAE2
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Michael at time 2020_07_25 22.54.13
+Comparing 2 strings: -
+Comparing 2 strings: -
+Comparing 2 strings: -
+Comparing 2 strings: E7E5D1  E9E7D3
+Comparing 2 strings: A3AEC2  A4B0C4
+Comparing 2 strings: 8DDFF7  8EE1F9
+Comparing 2 strings: D8AC87  DAAE88
+Comparing 2 strings: DBEEF8  DDF0FA
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+
+                                   
+Problem happened in Michael at time 2020_07_26 00.51.25
+PROBLEM 1\8
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4]  OK!
+Comparing 2 strings: [5]  OK!
+Comparing 2 strings: [6]  OK!
+Comparing 2 strings: [7] DBEEF8  DDF0FA
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in the Book at time 2020_07_26 01.11.54
+PROBLEM 2\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3] FCF4E7  FFF6E9
+Comparing 2 strings: [4] 5467A2  5568A4
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in the Box at time 2020_07_26 01.16.54
+PROBLEM 1\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4] F1D4D1  F3D6D3
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in top Bar at time 2020_07_26 01.28.55
+PROBLEM 1\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4] B0C8E0  B2CAE2
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in top Bar at time 2020_07_26 01.31.25
+PROBLEM 4\5
+Comparing 2 strings: [0] B8CDE3  BACFE5
+Comparing 2 strings: [1] BFD3E7  C1D5E9
+Comparing 2 strings: [2] 4F9CE5  509FE7
+Comparing 2 strings: [3] BFD3E6  C1D5E8
+Comparing 2 strings: [4]  OK!
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in the Box at time 2020_07_26 01.41.54
+PROBLEM 1\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4] F1D4D1  F3D6D3
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in top Bar at time 2020_07_26 01.51.54
+PROBLEM 4\5
+Comparing 2 strings: [0] B8CDE3  BACFE5
+Comparing 2 strings: [1] BFD3E7  C1D5E9
+Comparing 2 strings: [2] 4F9CE5  509FE7
+Comparing 2 strings: [3] BFD3E6  C1D5E8
+Comparing 2 strings: [4]  OK!
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Leaves at time 2020_07_26 04.32.24
+PROBLEM 1\5
+Comparing 2 strings: [0] 496D2C  4A6E2C
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4]  OK!
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in the Book at time 2020_07_26 04.39.33
+PROBLEM 4\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1] F5C5B3  F7C7B5
+Comparing 2 strings: [2] 73375E  74385F
+Comparing 2 strings: [3] FCF4E7  FFF6E9
+Comparing 2 strings: [4] 5467A2  5568A4
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in top Bar at time 2020_07_26 05.01.19
+PROBLEM 4\5
+Comparing 2 strings: [0] B8CDE3  BACFE5
+Comparing 2 strings: [1] BFD3E7  C1D5E9
+Comparing 2 strings: [2] 4F9CE5  509FE7
+Comparing 2 strings: [3] BFD3E6  C1D5E8
+Comparing 2 strings: [4]  OK!
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Michael at time 2020_07_26 05.16.19
+PROBLEM 2\8
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4]  OK!
+Comparing 2 strings: [5]  OK!
+Comparing 2 strings: [6] D8AC87  DAAE88
+Comparing 2 strings: [7] DBEEF8  DDF0FA
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in the Box at time 2020_07_26 05.56.19
+PROBLEM 3\5
+Comparing 2 strings: [0] 6275B4  6376B6
+Comparing 2 strings: [1] ACB1B5  AEB3B7
+Comparing 2 strings: [2] 546EBE  556FC0
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4]  OK!
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in top Bar at time 2020_07_26 06.06.19
+PROBLEM 3\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2] 4F9CE5  509FE7
+Comparing 2 strings: [3] BFD3E6  C1D5E8
+Comparing 2 strings: [4] B0C8E0  B2CAE2
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Leaves at time 2020_07_26 06.31.20
+PROBLEM 4\5
+Comparing 2 strings: [0] 496D2C  4A6E2C
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2] 293320  293420
+Comparing 2 strings: [3] 2A3121  2A3221
+Comparing 2 strings: [4] 375622  385722
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in the Box at time 2020_07_26 06.36.19
+PROBLEM 4\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1] ACB1B5  AEB3B7
+Comparing 2 strings: [2] 546EBE  556FC0
+Comparing 2 strings: [3] 4B5DA9  4C5EAB
+Comparing 2 strings: [4] F1D4D1  F3D6D3
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in the Book at time 2020_07_26 06.56.19
+PROBLEM 4\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1] F5C5B3  F7C7B5
+Comparing 2 strings: [2] 73375E  74385F
+Comparing 2 strings: [3] FCF4E7  FFF6E9
+Comparing 2 strings: [4] 5467A2  5568A4
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in top Bar at time 2020_07_26 07.26.20
+PROBLEM 2\5
+Comparing 2 strings: [0] B8CDE3  BACFE5
+Comparing 2 strings: [1] BFD3E7  C1D5E9
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4]  OK!
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in top Bar at time 2020_07_26 07.37.15
+PROBLEM 4\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1] BFD3E7  C1D5E9
+Comparing 2 strings: [2] 4F9CE5  509FE7
+Comparing 2 strings: [3] BFD3E6  C1D5E8
+Comparing 2 strings: [4] B0C8E0  B2CAE2
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Leaves at time 2020_07_26 08.01.19
+PROBLEM 1\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4] 375622  385722
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in top Bar at time 2020_07_26 08.08.10
+PROBLEM 1\5
+Comparing 2 strings: [0] B8CDE3  BACFE5
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4]  OK!
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Michael at time 2020_07_26 08.08.27
+PROBLEM 7\8
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1] EDD3A5  EFD5A6
+Comparing 2 strings: [2] 94E0F7  95E2F9
+Comparing 2 strings: [3] E7E5D1  E9E7D3
+Comparing 2 strings: [4] A3AEC2  A4B0C4
+Comparing 2 strings: [5] 8DDFF7  8EE1F9
+Comparing 2 strings: [6] D8AC87  DAAE88
+Comparing 2 strings: [7] DBEEF8  DDF0FA
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in the Box at time 2020_07_26 08.47.26
+PROBLEM 2\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3] 4B5DA9  4C5EAB
+Comparing 2 strings: [4] F1D4D1  F3D6D3
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Leaves at time 2020_07_26 09.11.20
+PROBLEM 2\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3] 2A3121  2A3221
+Comparing 2 strings: [4] 375622  385722
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in dark Michael at time 2020_07_26 09.16.30
+PROBLEM 7\8
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1] 473F32  484032
+Comparing 2 strings: [2] 2D434A  2D444B
+Comparing 2 strings: [3] 45443E  46453F
+Comparing 2 strings: [4] 31353A  31353B
+Comparing 2 strings: [5] 2B434A  2B444B
+Comparing 2 strings: [6] 403329  413429
+Comparing 2 strings: [7] 41474A  42484B
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Leaves at time 2020_07_26 10.20.08
+PROBLEM 3\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2] 293320  293420
+Comparing 2 strings: [3] 2A3121  2A3221
+Comparing 2 strings: [4] 375622  385722
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Michael at time 2020_07_26 11.02.14
+PROBLEM 3\8
+Comparing 2 strings: [0] 549DF6  559FF8
+Comparing 2 strings: [1] EDD3A5  EFD5A6
+Comparing 2 strings: [2] 94E0F7  95E2F9
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4]  OK!
+Comparing 2 strings: [5]  OK!
+Comparing 2 strings: [6]  OK!
+Comparing 2 strings: [7]  OK!
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Leaves at time 2020_07_26 11.02.25
+PROBLEM 3\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2] 293320  293420
+Comparing 2 strings: [3] 2A3121  2A3221
+Comparing 2 strings: [4] 375622  385722
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Michael at time 2020_07_26 11.31.46
+PROBLEM 3\8
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4]  OK!
+Comparing 2 strings: [5] 8DDFF7  8EE1F9
+Comparing 2 strings: [6] D8AC87  DAAE88
+Comparing 2 strings: [7] DBEEF8  DDF0FA
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Leaves at time 2020_07_26 11.40.55
+PROBLEM 3\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2] 293320  293420
+Comparing 2 strings: [3] 2A3121  2A3221
+Comparing 2 strings: [4] 375622  385722
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Leaves at time 2020_07_26 12.04.37
+PROBLEM 3\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2] 293320  293420
+Comparing 2 strings: [3] 2A3121  2A3221
+Comparing 2 strings: [4] 375622  385722
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in top Bar at time 2020_07_26 12.11.20
+PROBLEM 1\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4] B0C8E0  B2CAE2
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in the Book at time 2020_07_26 12.26.20
+PROBLEM 2\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3] FCF4E7  FFF6E9
+Comparing 2 strings: [4] 5467A2  5568A4
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Leaves at time 2020_07_26 12.46.20
+PROBLEM 2\5
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3] 2A3121  2A3221
+Comparing 2 strings: [4] 375622  385722
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Michael at time 2020_07_26 13.16.20
+PROBLEM 7\8
+Comparing 2 strings: [0]  OK!
+Comparing 2 strings: [1] EDD3A5  EFD5A6
+Comparing 2 strings: [2] 94E0F7  95E2F9
+Comparing 2 strings: [3] E7E5D1  E9E7D3
+Comparing 2 strings: [4] A3AEC2  A4B0C4
+Comparing 2 strings: [5] 8DDFF7  8EE1F9
+Comparing 2 strings: [6] D8AC87  DAAE88
+Comparing 2 strings: [7] DBEEF8  DDF0FA
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in top Bar at time 2020_07_26 13.21.32
+PROBLEM 3\5
+Comparing 2 strings: [0] B8CDE3  BACFE5
+Comparing 2 strings: [1] BFD3E7  C1D5E9
+Comparing 2 strings: [2] 4F9CE5  509FE7
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4]  OK!
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in Michael at time 2020_07_26 13.24.49
+PROBLEM 1\8
+Comparing 2 strings: [0] 549DF6  559FF8
+Comparing 2 strings: [1]  OK!
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4]  OK!
+Comparing 2 strings: [5]  OK!
+Comparing 2 strings: [6]  OK!
+Comparing 2 strings: [7]  OK!
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
+Problem happened in top Bar at time 2020_07_26 13.36.55
+PROBLEM 2\5
+Comparing 2 strings: [0] B8CDE3  BACFE5
+Comparing 2 strings: [1] BFD3E7  C1D5E9
+Comparing 2 strings: [2]  OK!
+Comparing 2 strings: [3]  OK!
+Comparing 2 strings: [4]  OK!
+ _ _ _  _ _ _  _ _ _  _ _ _  _ _ _ 
+                                   
+                                   
