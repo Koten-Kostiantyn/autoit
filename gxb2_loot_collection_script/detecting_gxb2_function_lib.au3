@@ -26,7 +26,7 @@ Func compare_current_and_constant_pixel_colors($current_array, $constant_array, 
    Next
    If $array_pixel_color_problem Then
 	  If $array_pixel_color_problem == $arrayLength Then
-		 ConsoleWrite ( "PROBLEM " & $array_pixel_color_problem & "\" & $arrayLength & @CRLF)
+		 ConsoleWrite ( "MISSING " & $array_pixel_color_problem & "\" & $arrayLength & @CRLF)
 	  Else
 		 ConsoleWrite ( "PROBLEM " & $array_pixel_color_problem & "\" & $arrayLength & @CRLF)
 		 Local $current_timestamp = @YEAR & "_" & @MON & "_" & @MDAY  & " " & @HOUR & "." & @MIN & "." & @SEC

@@ -1,54 +1,43 @@
 #cs ----------------------------------------------------------------------------
 
  AutoIt Version: 3.3.14.5
- Author:         Koten_Kostiantyn
+ Author:         Koten Kostiantyn
+ Github:         https://github.com/Koten-Kostiantyn/autoit/tree/master/gxb2_loot_collection_script
 
  Script Function:
-	GXB2 Loot auto-collection bot.
-	Script logic:
-
-	- Check topBar(avoid red dot on blue plus), backButton,
-	  Michael, Book, Leaves, Earth to make sure
-	  it's GXB2 loot collecting page and not an capsule draw page LUL
-   - click on "collect loot" (pepsi and gold)
-
-	- Check if  loot red dot is present, if yes:
-	  - click on loot button
-	  - wait ~10~30 sec
-	  - check if there loot preview window is on a screen
-	  - click "Claim"
-	  - wait ~10~30 sec
-	  loop is done
-    - wait for ~1~5~watever minute and repeat this script
-
-	(this script will brake on level UP, would be nice to add reaction to levelups)
-
-	would be nice to output logs in command line
-	in logs show how much time was between red dots
-	how many times loot was collected
-
-	Script should instantly terminate if there is something different on screen
-
+   GXB2 Loot auto-collection bot.
 ----------------------------------------------------------------------------
-Script v2
+ Script logic:
 
-While 1 do:
-- scenario 1: check if we are in the game (loot collecting tab)
-- scenario 2: check if lootbox window is open and we are on loot collecting tab
-- scenario 3: check red dot
+   Continiously search for one of these scenarios:
+	  - scenario 1: We are on loot collecting tab
+	  - scenario 2: We are on loot collecting tab but lootbox window is open
+	  - scenario 3: We are on loot collecting tab and lootbox red dot is present
 
+	  - fail scenario 1: If 1st or 2nd scenario is not found
+	  - fail scenario 2: If 1st or 2nd scenario is not found 3 TIMES IN A ROW
 
-Check if any scenario exist(except 3rd), if none - exit with error
+   Scenario acrions:
+	  - scenario 1: Click on "collect" button
+	  - scenario 2: Screenshot a lootbox window, click on "claim" button
+	  - scenario 3: Click on lootbox
 
-For each scenario - make it own actions
-scenario 2 - close loot window
-scenario 1 - nothing or collect loot
-scenario 3 - check scenario 1 and click on lootbox
-
-repeat
+	  - fail scenario 1: Make a screenshot and write a debug logs         (also make a low beep)
+	  - fail scenario 2: Terminate script                                 (also make a series of hi beeps)
 ----------------------------------------------------------------------------
-
-#ce ----------------------------------------------------------------------------
+ Known bugs:
+	  - 1: If relogin window appears, this will cause making screenshots every 5 seconds and script won't stop
+	  - 2: If game freeze, script wil also make a screenchot and constantly click on place where "claim" button should be
+	  - 3: Sometimes pixels maps randomly changes it's colors, thus it triggers 'fail scenario 1', this is the reason why 'fail scenario 2' exist
+	  - 4: If the game ask for restart - skript will terminate
+	  - 5: Unknown behaviour at level up or other unexpected scenarios
+----------------------------------------------------------------------------
+ TBD:
+	  - Nicer logs output
+	  - Fix bug №1 №2
+	  - Add more scenarios
+	  - More detailed log for loot drop (time between loot drops, times loot collected, loot drop rate)
+#ce ------------------------------------------------------------------------
 
 #include <MsgBoxConstants.au3>
 #include "detecting_gxb2_campaign_tab.au3"
@@ -128,7 +117,7 @@ Func multiple_search_for_game_scenario()
 	  ;ConsoleWrite ( "times to recheck  " & $times_to_recheck_scenarios & @CRLF)
 
 	  If not $scenario_found Then
-		 ConsoleWrite ( "RECHECK inside " & $i + 1 & @CRLF)
+		 ConsoleWrite ( "Scenario search attempt - " & $i + 1 & @CRLF)
 		 $scenario_found = search_for_game_scenario()
 	  EndIf
 
