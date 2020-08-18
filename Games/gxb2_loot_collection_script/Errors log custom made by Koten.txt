@@ -1,0 +1,27 @@
+Checking the Michael...PROBLEM 1\8
+Comparing 2 strings: 549DF6  559FF8      =
+Comparing 2 strings: EFD5A6  EFD5A6
+Comparing 2 strings: 95E2F9  95E2F9
+Comparing 2 strings: E9E7D3  E9E7D3
+Comparing 2 strings: A4B0C4  A4B0C4
+Comparing 2 strings: 8EE1F9  8EE1F9
+Comparing 2 strings: DAAE88  DAAE88
+Comparing 2 strings: DDF0FA  DDF0FA
+
+Checking the the Box...PROBLEM 3\5
+Comparing 2 strings: 6376B6  6376B6
+Comparing 2 strings: AEB3B7  AEB3B7
+Comparing 2 strings: 546EBE  556FC0      =
+Comparing 2 strings: 4B5DA9  4C5EAB      =
+Comparing 2 strings: F1D4D1  F3D6D3      =
+
+
+Checking the Michael...PROBLEM 7\8
+Comparing 2 strings: 559FF8  559FF8       ~
+Comparing 2 strings: EDD3A5  EFD5A6
+Comparing 2 strings: 94E0F7  95E2F9
+Comparing 2 strings: E7E5D1  E9E7D3
+Comparing 2 strings: A3AEC2  A4B0C4
+Comparing 2 strings: 8DDFF7  8EE1F9
+Comparing 2 strings: D8AC87  DAAE88
+Comparing 2 strings: DBEEF8  DDF0FA
