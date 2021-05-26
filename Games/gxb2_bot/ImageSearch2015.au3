@@ -86,7 +86,7 @@ Func _ImageSearchArea($findImage, $resultPosition, $x1, $y1, $right, $bottom, By
    Local $ImageFileOptions = ""
    If $tolerance > 0 Then $findImage = "*" & $tolerance & " " & $ImageFileOptions
    If $transparency <> 0 Then $ImageFileOptions = "*Trans" & Hex($transparency) & " " & $ImageFileOptions
-   $ImageFileOptions = $ImageFileOptions & $findImage
+   $ImageFileOptions = $findImage ;$ImageFileOptions & $findImage
 
    $result = DllCall($h_ImageSearchDLL, "str", "ImageSearch", "int", $x1, "int", $y1, "int", $right, "int", $bottom, "str", $ImageFileOptions)
    If @error Then Return "DllCall Error=" & @error
@@ -224,4 +224,49 @@ Func waitForImage($imageFile, $waitSecs = 0)
 	WEnd
 
 	Return False
+ EndFunc
+
+Func find_one_from_2_Images ($imageFile1, $imageFile2)
+
+   If findImage($imageFile1) <> false Then
+	  Return findImage($imageFile1)
+   EndIf
+
+   If findImage($imageFile2) <> false Then
+	  Return findImage($imageFile2)
+   EndIf
+
+EndFunc
+
+
+Func waitFor_one_of_2_Images ($imageFile1, $imageFile2, $waitSecs = 0)
+
+	Local $timeout = $waitSecs * 1000
+	Local $startTime = TimerInit()
+
+	;loop until image is found, or until wait time is exceeded
+	While true
+
+	    If IsDeclared("seconds_counter") Then
+		   $current_second = ($timeout - TimerDiff($startTime))/1000
+		   $current_second = Int($current_second)
+		   GUICtrlSetData ($seconds_counter,String($current_second))
+        EndIf
+
+		If findImage($imageFile1) <> false Then
+			Return true
+	    EndIf
+
+		If findImage($imageFile2) <> false Then
+			Return true
+		EndIf
+
+		If $timeout > 0 And TimerDiff($startTime) >= $timeout Then
+			ExitLoop
+		EndIf
+		sleep(50)
+	WEnd
+
+	Return False
+
 EndFunc

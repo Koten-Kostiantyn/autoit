@@ -1,6 +1,7 @@
 #include <Constants.au3>
 #include <GUIConstantsEx.au3>
-#include <GXB2_collect_loot.au3>
+;#include <lib_gxb2_collect_loot.au3>
+#include <lib_gxb2_daily_quiz.au3>
 #include <StaticConstants.au3>
 
 GUICreate("ImageSearch demo", 300, 150)
@@ -16,8 +17,9 @@ HotkeySet ("{ESC}", exitScript)
 
 Func test()
 
-   collect_loot()
-
+   ;collect_loot()
+   daily_quiz()
+   ;wait_for_claim_t()
 
 EndFunc
 
