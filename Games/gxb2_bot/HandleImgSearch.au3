@@ -15,6 +15,7 @@
 #include <Array.au3>
 
 Func findImage($imageFile)
+    If IsDeclared("findImage_sleep_debug") Then Sleep($findImage_sleep_debug)
 	;search entire screen area for image, return img coords if found, false if not
 	Local $searchAreaX1 = 0
 	Local $searchAreaY1 = 0
@@ -22,8 +23,6 @@ Func findImage($imageFile)
 	Local $searchAreaY2 = @DesktopHeight
 	Local $tolerance = 15
 	Local $maximg = 1
-    Local $imgX = 0
-	Local $imgY = 0
 	Local $result
 
 	_GlobalImgInit("", $searchAreaX1, $searchAreaY1, $searchAreaX2, $searchAreaY2, False, False, $tolerance , $maximg)
@@ -31,86 +30,26 @@ Func findImage($imageFile)
 
 	$result = _GlobalImgSearch($imageFile)
 	If not @error Then
-	    _ArrayDisplay($result, "2D display")
-	    $imgX = $result[1][0]
-		$imgY = $result[1][1]
-
-		Local $imgCoords[2] = [$imgX, $imgY]
+		Local $imgCoords[2] = get_center_coords($result)
+		;_ArrayDisplay($imgCoords, "2D display")
 		Return $imgCoords
 	Else
 		Return false
 	EndIf
-EndFunc
+ EndFunc
 
-Func waitForImage($imageFile, $waitSecs = 0)
-	Local $timeout = $waitSecs * 1000
-	Local $startTime = TimerInit()
-
-	;loop until image is found, or until wait time is exceeded
-	While true
-
-	    If IsDeclared("seconds_counter") Then
-		   $current_second = ($timeout - TimerDiff($startTime))/1000
-		   $current_second = Int($current_second)
-		   GUICtrlSetData ($seconds_counter,String($current_second))
-        EndIf
-
-		If findImage($imageFile) <> false Then
-			Return true
-		EndIf
-
-		If $timeout > 0 And TimerDiff($startTime) >= $timeout Then
-			ExitLoop
-		EndIf
-		sleep(50)
-	WEnd
-
-	Return False
-EndFunc
-
-Func find_one_from_2_Images ($imageFile1, $imageFile2)
-
-   If findImage($imageFile1) <> false Then
-	  Return findImage($imageFile1)
-   EndIf
-
-   If findImage($imageFile2) <> false Then
-	  Return findImage($imageFile2)
-   EndIf
-
-EndFunc
-
-
-Func waitFor_one_of_2_Images ($imageFile1, $imageFile2, $waitSecs = 0)
-
-	Local $timeout = $waitSecs * 1000
-	Local $startTime = TimerInit()
-
-	;loop until image is found, or until wait time is exceeded
-	While true
-
-	    If IsDeclared("seconds_counter") Then
-		   $current_second = ($timeout - TimerDiff($startTime))/1000
-		   $current_second = Int($current_second)
-		   GUICtrlSetData ($seconds_counter,String($current_second))
-        EndIf
-
-		If findImage($imageFile1) <> false Then
-			Return true
-	    EndIf
-
-		If findImage($imageFile2) <> false Then
-			Return true
-		EndIf
-
-		If $timeout > 0 And TimerDiff($startTime) >= $timeout Then
-			ExitLoop
-		EndIf
-		sleep(50)
-	WEnd
-
-	Return False
-
+Func get_center_coords($GlobalImgSearchResult)
+   ;Returns x,y coords of center of found image
+    Local $imgX = $GlobalImgSearchResult[1][0]
+	Local $imgY = $GlobalImgSearchResult[1][1]
+    Local $imgHeight = $GlobalImgSearchResult[1][2]
+	Local $imgWidth = $GlobalImgSearchResult[1][3]
+	$imgHeight = Int($imgHeight / 2)
+	$imgWidth = Int($imgWidth / 2)
+	$imgX = $imgX + $imgHeight
+	$imgY = $imgY + $imgWidth
+	Local $result = [$imgX, $imgY]
+	Return $result
 EndFunc
 
 
